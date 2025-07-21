@@ -16,7 +16,7 @@ The paper can be found here:[`arXiv preprint`](https://arxiv.org/abs/2506.23145v
 
 **Note:** This directory will be updated.
 
-Please notes that the weights of 1) original model, 2) retrained model with 3% forget size, 3) retrained model with 6% forget size, and 4) retrained model with 10% forget size are available here: [Weights](https://drive.google.com/drive/folders/15_3n6_fqDHVrgJLduWddzoT4wXwkGViQ?usp=sharing )
+Please note that the weights of 1) original model, 2) retrained model with 3% forget size, 3) retrained model with 6% forget size, and 4) retrained model with 10% forget size are available here: [Weights](https://drive.google.com/drive/folders/15_3n6_fqDHVrgJLduWddzoT4wXwkGViQ?usp=sharing )
 
 ------- 
 
