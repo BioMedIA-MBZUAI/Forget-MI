@@ -8,7 +8,7 @@ Forget-MI is evaluated on a subset of MIMIC-CXR for edema classification, demons
 
 The effectiveness of the method is illustrated in the Figure below, which outlines the multimodal unlearning process via four loss components: Unimodal Unlearning (UU), Multimodal Unlearning (MU), Unimodal Retention (UR), and Multimodal Retention (MR).
 
-[Figure](forgetmi-Technical.png)
+<img src="forgetmi-Technical.png" width="24" alt="⚠️"/>
 
 The paper can be found here:[`arXiv preprint`](https://arxiv.org/abs/2506.23145v1) 
 
@@ -18,4 +18,4 @@ Please notes that the weights of 1) original model, 2) retrained model with 3% f
 
 ------- 
 
-#Code Instructions
+# Code Instructions
