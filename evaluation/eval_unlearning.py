@@ -11,8 +11,8 @@ from torch.utils.data import DataLoader
 from sklearn.svm import SVC
 from transformers import BertTokenizer, BertConfig
 
-from joint_img_txt.model.model import ImageTextModel
-from joint_img_txt.model import loss as custom_loss
+from joint_img_txt.model import ImageTextModel
+import joint_img_txt.loss as custom_loss
 from training.forgetme_partial import get_model_inputs, set_seed, build_dataset
 from evaluation.eval_utils import get_probability_measure, compute_metrics
 

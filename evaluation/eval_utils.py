@@ -7,7 +7,7 @@ import torch
 import torch.nn.functional as F
 from scipy.special import softmax
 from scipy.stats import logistic
-from scripts.metrics import compute_auc, compute_mse, get_acc_f1
+from joint_img_txt.metrics import compute_auc, compute_mse, get_acc_f1
 
 from training.forgetme_partial import get_model_inputs
 

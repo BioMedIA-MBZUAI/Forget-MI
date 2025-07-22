@@ -10,22 +10,16 @@ from scipy.special import softmax
 import logging
 import numpy as np
 import json
-import sklearn
-import time
 
 import torch
 from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler, TensorDataset)
-from torch.utils.tensorboard import SummaryWriter #TODO: this will only work with Pytorch 1.0
 import torch.optim.lr_scheduler as lr_scheduler
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss
-from torch.nn import Softmax,LogSoftmax
-
-import torchvision
 from transformers.optimization import AdamW, get_linear_schedule_with_warmup
 
-from joint_img_txt.model import model_utils
-from joint_img_txt.model import loss as custom_loss
-from scripts import metrics as eval_metrics
+import joint_img_txt.model_utils as model_utils
+import joint_img_txt.loss as custom_loss
+from joint_img_txt import metrics as eval_metrics
 
 
 # The training function
@@ -34,7 +28,6 @@ def train(args, device, model, tokenizer):
     Create a logger and tensorboard writer
     '''
     logger = logging.getLogger(__name__)
-    tb_writer = SummaryWriter(log_dir=args.tsbd_dir)
 
     '''
     Create a training dataset and dataloader
@@ -224,21 +217,6 @@ def train(args, device, model, tokenizer):
                 if epoch == args.num_train_epochs -1:
                     last_epoch_global_step += 1
                 if args.logging_steps > 0 and global_step % args.logging_steps == 0:
-                    tb_writer.add_scalar('learning_rate', 
-                                         optimizer.param_groups[0]['lr'], 
-                                         global_step)
-                    tb_writer.add_scalar('loss/train', 
-                                         (tr_loss - logging_loss)/args.logging_steps, 
-                                         global_step)
-                    tb_writer.add_scalar('loss_img/train', 
-                                         (tr_img_loss - logging_img_loss)/args.logging_steps, 
-                                         global_step)
-                    tb_writer.add_scalar('loss_txt/train', 
-                                         (tr_txt_loss - logging_txt_loss)/args.logging_steps, 
-                                         global_step)
-                    tb_writer.add_scalar('loss_joint/train', 
-                                         (tr_joint_loss - logging_joint_loss)/args.logging_steps, 
-                                         global_step)
                     logger.info("  [%d, %5d, %5d] learning rate = %.7f"%\
                         (epoch + 1, step + 1, global_step,
                         optimizer.param_groups[0]['lr']))

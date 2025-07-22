@@ -1,0 +1,151 @@
+program: forgetmi_partial.py
+method: random
+parameters:
+  project:
+    value: "forget_exp"
+  entity:
+    value: "unlearning"
+  use_noise:
+    value: false
+  do_train:
+    value: true
+  overwrite_output_dir:
+    value: true
+  do_eval:
+    value: false
+  base_model_path:
+    value: "./original_model_path"
+  random_point_ratio:
+    value: 0.1
+  validation_ratio:
+    value: 0.1
+  retrained_model_path:
+    value: "./model_retrained_10per/"
+  output_dir:
+    value: "./unlearning_output/"
+  bert_pretrained_dir:
+    value: "./allenai/"
+  text_data_dir:
+    value: "./metadata/"
+  data_split_path:
+    value: "./data_splits/mimic-cxr-sub-img-edema-split-manualtest.csv"
+  img_data_dir:
+    value: "physionet.org/files/mimic-cxr/2.1.0/files/"
+  synonyms_dir:
+    value: "./data_splits/Synonyms.csv"
+  forget_set_path:
+    value: "./data_splits/forget_set_10per.csv"
+  max_seq_length:
+    value: 320
+  text_noise_level:
+    value: 0.5  
+  random_seed:
+    value: 42
+  output_channel_encoding:
+    value: "multiclass"  
+  learning_rate:
+    values: [1e-4, 1e-5]
+  weight_decay:
+    value: 0.01
+  unlearn_epochs:
+    value: 30
+  scheduler:
+    value: "ReduceLROnPlateau"
+  warmup_proportion:
+    value: 0.1
+  eval_batch_size:
+    value: 16
+  unlearn_batch_size:
+    value: 16
+  noise_mean:
+    value: 0
+  noise_std:
+    value: 0.1
+  alpha:
+    value: 1
+  beta:
+    value: 1  
+  theta:
+    value: 2 
+  gamma:
+    value: 2  
+  bert_pool_last_hidden: 
+    value: false 
+  bert_pool_use_img: 
+    value: false 
+  bert_pool_img_lowerlevel: 
+    value: false 
+  reprocess_input_data:
+    value: false
+  id: 
+    value: "example"
+  use_text_data_dir: 
+    value: false
+  use_data_split_path: 
+    value: false 
+  training_mode: 
+    value: "supervised"
+  semisupervised_training_data: 
+    value: "allCXR"
+  use_masked_txt: 
+    value: false
+  use_all_data: 
+    value: false
+  use_pretrained_checkpoint: 
+    value: false
+  print_predictions: 
+    value: false
+  print_embeddings: 
+    value: false
+  num_cpu_workers: 
+    value: 8
+  logging_steps: 
+    value: 50 
+  save_epochs: 
+    value: 1 
+command:
+  - ${env:PYTHON}
+  - /home/shahad.hardan/forgetme/forgetme_partial.py
+  - --unlearn_epochs=${unlearn_epochs}
+  - --random_model_path=${random_model_path}
+  - --forget_set_path=${forget_set_path}
+  - --data_split_path=${data_split_path}
+  - --output_dir=${output_dir}
+  - --output_channel_encoding=${output_channel_encoding}
+  - --text_data_dir=${text_data_dir}
+  - --img_data_dir=${img_data_dir}
+  - --synonyms_dir=${synonyms_dir}
+  - --reprocess_input_data=${reprocess_input_data}
+  - --base_model_path=${base_model_path}
+  - --retrained_model_path=${retrained_model_path}
+  - --bert_pretrained_dir=${bert_pretrained_dir}
+  - --do_train
+  - --overwrite_output_dir
+  - --max_seq_length=${max_seq_length}
+  - --text_noise_level=${text_noise_level}
+  - --random_seed=${random_seed}
+  - --learning_rate=${learning_rate}
+  - --weight_decay=${weight_decay}
+  - --scheduler=${scheduler}
+  - --warmup_proportion=${warmup_proportion}
+  - --eval_batch_size=${eval_batch_size}
+  - --unlearn_batch_size=${unlearn_batch_size}
+  - --noise_mean=${noise_mean}
+  - --noise_std=${noise_std}
+  - --alpha=${alpha}
+  - --beta=${beta}
+  - --theta=${theta}
+  - --gamma=${gamma}
+  - --bert_pool_last_hidden=${bert_pool_last_hidden}
+  - --bert_pool_use_img=${bert_pool_use_img}
+  - --bert_pool_img_lowerlevel=${bert_pool_img_lowerlevel}
+  - --training_mode=${training_mode}
+  - --semisupervised_training_data=${semisupervised_training_data}
+  - --use_masked_txt=${use_masked_txt}
+  - --use_all_data=${use_all_data}
+  - --use_pretrained_checkpoint=${use_pretrained_checkpoint}
+  - --print_predictions=${print_predictions}
+  - --print_embeddings=${print_embeddings}
+  - --num_cpu_workers=${num_cpu_workers}
+  - --logging_steps=${logging_steps}
+  - --save_epochs=${save_epochs}

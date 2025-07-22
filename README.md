@@ -20,11 +20,11 @@ Please note that the weights of original model, retrained model with 3% forget s
 
 ------- 
 
-# Code Instructions
+## Code Instructions
 
 --------
 
-# Citations and Resources
+## Citations and Resources
 
 If you use this method or code, please cite:
 

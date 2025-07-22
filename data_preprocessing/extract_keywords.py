@@ -5,7 +5,7 @@ import spacy
 from collections import Counter
 
 # Load the TSV file
-df = pd.read_csv("/home/shahad.hardan/forgetme/metadata/all_data.tsv", sep="\t", header=None)
+df = pd.read_csv("./metadata/all_data.tsv", sep="\t", header=None)
 
 all_text = " ".join(df[4].astype(str).tolist())
 

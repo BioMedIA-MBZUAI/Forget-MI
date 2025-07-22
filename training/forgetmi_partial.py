@@ -22,26 +22,22 @@ from sklearn.model_selection import train_test_split
 import random
 
 import torch
-from torch.nn import CrossEntropyLoss, MSELoss, BCEWithLogitsLoss
 from torch.utils.data import (DataLoader, RandomSampler, SequentialSampler, TensorDataset)
 import torch.optim.lr_scheduler as lr_scheduler
-from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss
-from torch.nn import Softmax,LogSoftmax
 
-from evaluation.evaluate_unlearning import evaluate, get_probability_measure
-from evaluation import metrics as eval_metrics
+from evaluation.eval_unlearning import get_probability_measure
+import joint_img_txt.metrics as eval_metrics
 from joint_img_txt import main_utils, parser
 from joint_embedding import Gate, Outer, Attention
 
 
-from transformers import BertTokenizer, BertPreTrainedModel, BertModel, BertForMaskedLM, BertConfig, AutoModel, AutoTokenizer
-from transformers.optimization import AdamW, get_linear_schedule_with_warmup
+from transformers import BertTokenizer
+from transformers.optimization import AdamW
 
-from joint_img_txt.model import loss as custom_loss
-from joint_img_txt.model import model_utils
-from joint_img_txt.model.model_utils import CXRImageTextDataset, EdemaClassificationProcessor, RandomTranslateCrop, CenterCrop, EdemaMultiLabelClassificationProcessor
-from joint_img_txt.model.model import ImageTextModel
-from joint_img_txt.model.convert_examples_to_features import convert_examples_to_features, convert_examples_to_features_multilabel
+import joint_img_txt.loss as custom_loss
+from joint_img_txt.model_utils import CXRImageTextDataset, EdemaClassificationProcessor, RandomTranslateCrop, CenterCrop, EdemaMultiLabelClassificationProcessor
+from joint_img_txt.model import ImageTextModel
+from joint_img_txt.convert_examples_to_features import convert_examples_to_features, convert_examples_to_features_multilabel
 from sklearn.model_selection import train_test_split
 
 def set_seed(seed: int):

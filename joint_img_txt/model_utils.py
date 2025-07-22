@@ -28,9 +28,9 @@ from torch.nn import CrossEntropyLoss, MSELoss, BCEWithLogitsLoss
 from transformers import BertPreTrainedModel
 from transformers import BertModel
 
-from joint_img_txt.model.convert_examples_to_features import convert_examples_to_features_multilabel
-from joint_img_txt.model.convert_examples_to_features import convert_examples_to_features
-from joint_img_txt.data_preprocessing.text_noise import add_noise
+from joint_img_txt.convert_examples_to_features import convert_examples_to_features_multilabel
+from joint_img_txt.convert_examples_to_features import convert_examples_to_features
+from data_preprocessing.text_noise import add_noise
 
 csv.field_size_limit(2147483647) 
 # Increase CSV reader's field limit incase we have long text.
