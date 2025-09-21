@@ -33,14 +33,14 @@ conda activate forgetmi
 
 Before running, make sure to set these paths in your `config.yaml` or via CLI flags:
 
-* `base_model_path`: directory of the pre-unlearning checkpoint.
-* `retrained_model_path`: directory of a retrained/randomized checkpoint (if used).
+* `base_model_path`: directory of the original model checkpoint.
+* `retrained_model_path`: directory of a retrained checkpoint.
 * `output_dir`: where outputs and checkpoints will be saved.
 * `bert_pretrained_dir`: directory of the pretrained BERT/text encoder.
 * `text_data_dir`: path to text/metadata files.
 * `img_data_dir`: path to image files.
-* `synonyms_dir`: path to Synonyms.csv (if used).
-* `data_split_path`: CSV with train/val/test splits.
+* `synonyms_dir`: path to Synonyms.csv.
+* `data_split_path`: CSV with splits.
 * `forget_set_path`: CSV of IDs to forget.
 
 ### 3) Run Command
