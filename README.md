@@ -45,8 +45,7 @@ Before running, make sure to set these paths in your `config.yaml` or via CLI fl
 
 ### 3) Run Command
 
-````markdown
-## Run with YAML config
+#### Run with YAML config
 ```bash
 python forgetmi_partial.py --config config.yaml
 ````
