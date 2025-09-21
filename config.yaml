@@ -105,7 +105,7 @@ parameters:
     value: 1 
 command:
   - ${env:PYTHON}
-  - /home/shahad.hardan/forgetme/forgetme_partial.py
+  - ./forgetmi_partial.py
   - --unlearn_epochs=${unlearn_epochs}
   - --random_model_path=${random_model_path}
   - --forget_set_path=${forget_set_path}
