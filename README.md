@@ -22,6 +22,64 @@ Please note that the weights of original model, retrained model with 3% forget s
 
 ## Code Instructions
 
+### 1) Environment
+Create the environment from the provided YAML:
+```bash
+conda env create -f conda_environment.yml
+conda activate forgetmi
+````
+
+### 2) Paths to Update
+
+Before running, make sure to set these paths in your `config.yaml` or via CLI flags:
+
+* `base_model_path`: directory of the pre-unlearning checkpoint.
+* `retrained_model_path`: directory of a retrained/randomized checkpoint (if used).
+* `output_dir`: where outputs and checkpoints will be saved.
+* `bert_pretrained_dir`: directory of the pretrained BERT/text encoder.
+* `text_data_dir`: path to text/metadata files.
+* `img_data_dir`: path to image files.
+* `synonyms_dir`: path to Synonyms.csv (if used).
+* `data_split_path`: CSV with train/val/test splits.
+* `forget_set_path`: CSV of IDs to forget.
+
+### 3) Run Command
+
+````markdown
+## Run with YAML config
+```bash
+python forgetmi_partial.py --config config.yaml
+````
+
+#### Run with Weights & Biases (W\&B) Sweep
+
+After logging in, create the sweep from your YAML:
+
+```bash
+wandb sweep ./config.yaml
+```
+
+Then launch an agent:
+
+```bash
+wandb agent <SWEEP_ID>
+```
+
+Replace `<SWEEP_ID>` with the ID returned after creating the sweep.
+
+<!--
+
+
+### 4) Key Hyperparameters
+
+* `--noise_mean`: mean of the Gaussian noise distribution.
+* `--noise_std`: standard deviation of the Gaussian noise distribution.
+* `--alpha`: weight for the main task loss.
+* `--beta`: weight for the forgetting loss on the forget set.
+* `--theta`: weight for the retention loss on the retain set.
+* `--gamma`: weight for the regularization or consistency loss.
+ -->
+
 --------
 
 ## Citations and Resources
