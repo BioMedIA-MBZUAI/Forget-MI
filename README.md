@@ -55,7 +55,7 @@ python training/forgetmi_partial.py --config config.yaml
 After logging in, create the sweep from your YAML:
 
 ```bash
-wandb sweep ./config.yaml
+wandb sweep config.yaml
 ```
 
 Then launch an agent:
