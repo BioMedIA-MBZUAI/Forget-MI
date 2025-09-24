@@ -1,4 +1,4 @@
-program: ./training/forgetmi_partial.py
+program: training/forgetmi_partial.py
 method: random
 parameters:
   project:
